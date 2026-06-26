@@ -4,7 +4,7 @@ Interaktywna mapa pod **Strategię Młodzieżową Miasta Opola — Obszar 7** (z
 
 Pokazuje, **gdzie w Opolu jest zieleń i infrastruktura, a gdzie są braki**, na realnych, publicznych i weryfikowalnych danych — żeby dyskusja opierała się na faktach, a nie na tezach.
 
-> 🌍 **Wersja publiczna (GitHub Pages):** _link pojawi się tu po publikacji._ Aplikacja jest w 100% statyczna (HTML+JS+GeoJSON), więc działa za darmo na GitHub Pages.
+> 🌍 **Wersja publiczna (GitHub Pages):** **https://lkolo-prez.github.io/mapa-zielona-opole/** — działa za darmo, w 100% statyczna (HTML+JS+GeoJSON).
 
 ## Jak edytować i opublikować zmiany
 
