@@ -1,0 +1,191 @@
+{
+  "probek": 948,
+  "kategorie": {
+    "zlobek": "Żłobek",
+    "przedszkole": "Przedszkole",
+    "podstawowa": "Szkoła podstawowa",
+    "srednia": "Szkoła średnia",
+    "wyzsza": "Szkoła wyższa",
+    "sklep_pierwszej": "Sklep pierwszej potrzeby"
+  },
+  "srednia_m": {
+    "zlobek": 2143,
+    "przedszkole": 1005,
+    "podstawowa": 1006,
+    "srednia": 2085,
+    "wyzsza": 1958,
+    "sklep_pierwszej": 543
+  },
+  "mediana_m": {
+    "zlobek": 1795,
+    "przedszkole": 696,
+    "podstawowa": 653,
+    "srednia": 1592,
+    "wyzsza": 1724,
+    "sklep_pierwszej": 334
+  },
+  "w_500m_proc": {
+    "zlobek": 9.8,
+    "przedszkole": 36.7,
+    "podstawowa": 38.0,
+    "srednia": 19.4,
+    "wyzsza": 19.3,
+    "sklep_pierwszej": 65.9
+  },
+  "w_800m_proc": {
+    "zlobek": 22.2,
+    "przedszkole": 54.3,
+    "podstawowa": 57.0,
+    "srednia": 32.0,
+    "wyzsza": 27.8,
+    "sklep_pierwszej": 80.3
+  },
+  "w_1200m_proc": {
+    "zlobek": 34.8,
+    "przedszkole": 71.1,
+    "podstawowa": 70.1,
+    "srednia": 43.3,
+    "wyzsza": 36.7,
+    "sklep_pierwszej": 89.1
+  },
+  "liczba_placowek": {
+    "zlobek": 6,
+    "przedszkole": 45,
+    "podstawowa": 39,
+    "srednia": 21,
+    "wyzsza": 13,
+    "sklep_pierwszej": 184
+  },
+  "dzielnice": [
+    {
+      "numer": 1,
+      "nazwa": "I",
+      "sr_zlobek": 6179,
+      "sr_przedszkole": 1109,
+      "sr_podstawowa": 1448,
+      "sr_srednia": 3973,
+      "sr_wyzsza": 5374,
+      "sr_sklep_pierwszej": 891
+    },
+    {
+      "numer": 2,
+      "nazwa": "II",
+      "sr_zlobek": 3993,
+      "sr_przedszkole": 991,
+      "sr_podstawowa": 1359,
+      "sr_srednia": 3315,
+      "sr_wyzsza": 2889,
+      "sr_sklep_pierwszej": 610
+    },
+    {
+      "numer": 3,
+      "nazwa": "III",
+      "sr_zlobek": 1488,
+      "sr_przedszkole": 320,
+      "sr_podstawowa": 317,
+      "sr_srednia": 494,
+      "sr_wyzsza": 579,
+      "sr_sklep_pierwszej": 243
+    },
+    {
+      "numer": 4,
+      "nazwa": "IV",
+      "sr_zlobek": 561,
+      "sr_przedszkole": 274,
+      "sr_podstawowa": 315,
+      "sr_srednia": 564,
+      "sr_wyzsza": 530,
+      "sr_sklep_pierwszej": 172
+    },
+    {
+      "numer": 5,
+      "nazwa": "V",
+      "sr_zlobek": 1091,
+      "sr_przedszkole": 613,
+      "sr_podstawowa": 788,
+      "sr_srednia": 1162,
+      "sr_wyzsza": 900,
+      "sr_sklep_pierwszej": 530
+    },
+    {
+      "numer": 6,
+      "nazwa": "VI",
+      "sr_zlobek": 1732,
+      "sr_przedszkole": 549,
+      "sr_podstawowa": 622,
+      "sr_srednia": 2271,
+      "sr_wyzsza": 2250,
+      "sr_sklep_pierwszej": 463
+    },
+    {
+      "numer": 7,
+      "nazwa": "VII",
+      "sr_zlobek": 3118,
+      "sr_przedszkole": 1558,
+      "sr_podstawowa": 1102,
+      "sr_srednia": 2533,
+      "sr_wyzsza": 1696,
+      "sr_sklep_pierwszej": 425
+    },
+    {
+      "numer": 8,
+      "nazwa": "VIII",
+      "sr_zlobek": 1124,
+      "sr_przedszkole": 357,
+      "sr_podstawowa": 495,
+      "sr_srednia": 384,
+      "sr_wyzsza": 239,
+      "sr_sklep_pierwszej": 156
+    },
+    {
+      "numer": 9,
+      "nazwa": "IX",
+      "sr_zlobek": 573,
+      "sr_przedszkole": 653,
+      "sr_podstawowa": 294,
+      "sr_srednia": 387,
+      "sr_wyzsza": 618,
+      "sr_sklep_pierwszej": 190
+    },
+    {
+      "numer": 10,
+      "nazwa": "X",
+      "sr_zlobek": 688,
+      "sr_przedszkole": 865,
+      "sr_podstawowa": 648,
+      "sr_srednia": 401,
+      "sr_wyzsza": 790,
+      "sr_sklep_pierwszej": 178
+    },
+    {
+      "numer": 11,
+      "nazwa": "XI",
+      "sr_zlobek": 1738,
+      "sr_przedszkole": 294,
+      "sr_podstawowa": 369,
+      "sr_srednia": 364,
+      "sr_wyzsza": 1484,
+      "sr_sklep_pierwszej": 248
+    },
+    {
+      "numer": 12,
+      "nazwa": "XII",
+      "sr_zlobek": 3875,
+      "sr_przedszkole": 2578,
+      "sr_podstawowa": 1371,
+      "sr_srednia": 3327,
+      "sr_wyzsza": 3888,
+      "sr_sklep_pierwszej": 1401
+    },
+    {
+      "numer": 13,
+      "nazwa": "XIII",
+      "sr_zlobek": 1476,
+      "sr_przedszkole": 873,
+      "sr_podstawowa": 1699,
+      "sr_srednia": 2427,
+      "sr_wyzsza": 2123,
+      "sr_sklep_pierwszej": 492
+    }
+  ]
+}

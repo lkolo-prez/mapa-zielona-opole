@@ -1,0 +1,59 @@
+{
+ "south": 50.580000000000005,
+ "north": 50.77,
+ "west": 17.77,
+ "east": 18.0,
+ "klasy": {
+  "10": "Drzewa (las/zadrzewienia)",
+  "20": "Zarośla/krzewy",
+  "30": "Trawy/łąki",
+  "40": "Uprawy rolne",
+  "50": "Zabudowa/teren utwardzony",
+  "60": "Grunt odkryty",
+  "70": "Śnieg/lód",
+  "80": "Woda",
+  "90": "Mokradła zielne",
+  "95": "Namorzyny",
+  "100": "Mchy/porosty"
+ },
+ "kolory": {
+  "10": [
+   20,
+   107,
+   26
+  ],
+  "20": [
+   143,
+   188,
+   77
+  ],
+  "30": [
+   182,
+   227,
+   107
+  ],
+  "40": [
+   233,
+   215,
+   116
+  ],
+  "90": [
+   111,
+   208,
+   192
+  ],
+  "100": [
+   200,
+   220,
+   160
+  ]
+ },
+ "legenda_veg": {
+  "10": "Drzewa (las/zadrzewienia)",
+  "20": "Zarośla/krzewy",
+  "30": "Trawy/łąki",
+  "40": "Uprawy rolne",
+  "90": "Mokradła zielne",
+  "100": "Mchy/porosty"
+ }
+}

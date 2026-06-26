@@ -1,0 +1,116 @@
+{
+  "stacji_bts": 136,
+  "probek_mieszk": 948,
+  "srednia_do_bts_m": 707,
+  "mediana_do_bts_m": 564,
+  "max_do_bts_m": 4100,
+  "biale_plamy_powyzej_1km": 181,
+  "biale_plamy_proc": 19.1,
+  "dzielnice": [
+    {
+      "numer": 1,
+      "nazwa": "I",
+      "bts": 4,
+      "gestosc_bts_km2": 0.16,
+      "srednia_do_bts_m": 1347,
+      "max_do_bts_m": 2699
+    },
+    {
+      "numer": 2,
+      "nazwa": "II",
+      "bts": 6,
+      "gestosc_bts_km2": 0.55,
+      "srednia_do_bts_m": 836,
+      "max_do_bts_m": 1610
+    },
+    {
+      "numer": 3,
+      "nazwa": "III",
+      "bts": 5,
+      "gestosc_bts_km2": 1.6,
+      "srednia_do_bts_m": 253,
+      "max_do_bts_m": 461
+    },
+    {
+      "numer": 4,
+      "nazwa": "IV",
+      "bts": 0,
+      "gestosc_bts_km2": 0.0,
+      "srednia_do_bts_m": 520,
+      "max_do_bts_m": 813
+    },
+    {
+      "numer": 5,
+      "nazwa": "V",
+      "bts": 9,
+      "gestosc_bts_km2": 0.96,
+      "srednia_do_bts_m": 530,
+      "max_do_bts_m": 1008
+    },
+    {
+      "numer": 6,
+      "nazwa": "VI",
+      "bts": 11,
+      "gestosc_bts_km2": 0.48,
+      "srednia_do_bts_m": 660,
+      "max_do_bts_m": 1243
+    },
+    {
+      "numer": 7,
+      "nazwa": "VII",
+      "bts": 10,
+      "gestosc_bts_km2": 0.54,
+      "srednia_do_bts_m": 657,
+      "max_do_bts_m": 1742
+    },
+    {
+      "numer": 8,
+      "nazwa": "VIII",
+      "bts": 7,
+      "gestosc_bts_km2": 2.46,
+      "srednia_do_bts_m": 239,
+      "max_do_bts_m": 502
+    },
+    {
+      "numer": 9,
+      "nazwa": "IX",
+      "bts": 7,
+      "gestosc_bts_km2": 3.99,
+      "srednia_do_bts_m": 281,
+      "max_do_bts_m": 486
+    },
+    {
+      "numer": 10,
+      "nazwa": "X",
+      "bts": 3,
+      "gestosc_bts_km2": 0.92,
+      "srednia_do_bts_m": 136,
+      "max_do_bts_m": 271
+    },
+    {
+      "numer": 11,
+      "nazwa": "XI",
+      "bts": 6,
+      "gestosc_bts_km2": 2.06,
+      "srednia_do_bts_m": 370,
+      "max_do_bts_m": 690
+    },
+    {
+      "numer": 12,
+      "nazwa": "XII",
+      "bts": 4,
+      "gestosc_bts_km2": 0.12,
+      "srednia_do_bts_m": 1428,
+      "max_do_bts_m": 4100
+    },
+    {
+      "numer": 13,
+      "nazwa": "XIII",
+      "bts": 4,
+      "gestosc_bts_km2": 0.28,
+      "srednia_do_bts_m": 677,
+      "max_do_bts_m": 1437
+    }
+  ],
+  "uwaga": "PROXY zasięgu (odległość do najbliższej stacji). Realny zasięg = moc/pasmo/kierunek anten/teren — dane operatorów lub UKE/internet.gov.pl. Stacje: SI2PEM."
+}

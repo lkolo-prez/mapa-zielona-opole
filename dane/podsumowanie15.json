@@ -1,0 +1,63 @@
+{
+  "progi_m": {
+    "10min": 800.0,
+    "15min": 1200.0
+  },
+  "probek": 948,
+  "srednia_odleglosc_m": {
+    "szkola": 901,
+    "przedszkole": 981,
+    "sklep_spoz": 543,
+    "apteka_lekarz": 932,
+    "przystanek": 196,
+    "sport": 470,
+    "plac_zabaw": 563,
+    "kultura": 1699,
+    "zielen": 142
+  },
+  "mediana_odleglosc_m": {
+    "szkola": 524,
+    "przedszkole": 647,
+    "sklep_spoz": 334,
+    "apteka_lekarz": 515,
+    "przystanek": 159,
+    "sport": 374,
+    "plac_zabaw": 398,
+    "kultura": 1196,
+    "zielen": 124
+  },
+  "dostepnosc_10min_proc": {
+    "szkola": 62.7,
+    "sklep_spoz": 80.3,
+    "apteka_lekarz": 63.8,
+    "przystanek": 98.7,
+    "zielen": 100.0,
+    "sport": 84.4
+  },
+  "dostepnosc_15min_proc": {
+    "szkola": 73.2,
+    "sklep_spoz": 89.1,
+    "apteka_lekarz": 74.2,
+    "przystanek": 99.8,
+    "zielen": 100.0,
+    "sport": 94.8
+  },
+  "rozklad_liczby_uslug_15min": {
+    "0": 0,
+    "1": 0,
+    "2": 14,
+    "3": 71,
+    "4": 106,
+    "5": 172,
+    "6": 585
+  },
+  "proc_pelne_15min_miasto": 61.7,
+  "kategorie_core": [
+    "szkola",
+    "sklep_spoz",
+    "apteka_lekarz",
+    "przystanek",
+    "zielen",
+    "sport"
+  ]
+}

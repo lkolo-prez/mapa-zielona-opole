@@ -1,0 +1,172 @@
+{
+  "globalne": {
+    "px": 2528251,
+    "drzewa_proc": 20.8,
+    "trawy_krzewy_proc": 17.2,
+    "uprawy_proc": 39.0,
+    "roslinnosc_total_proc": 77.2,
+    "zielen_rekreac_proc": 38.2,
+    "zabudowa_proc": 19.3,
+    "woda_proc": 3.1,
+    "uwaga": "statystyki dla obszaru administracyjnego miasta (maska 13 dzielnic), nie prostokąta bbox"
+  },
+  "dzielnice": [
+    {
+      "numer": 1,
+      "nazwa": "I",
+      "px": 467159,
+      "sat_drzewa_proc": 33.3,
+      "sat_trawy_krzewy_proc": 17.9,
+      "sat_zielen_proc": 51.3,
+      "sat_roslinnosc_proc": 85.9,
+      "sat_zabudowa_proc": 12.5,
+      "osm_zielen_proc": 33.0,
+      "roznica_sat_minus_osm": 18.3
+    },
+    {
+      "numer": 2,
+      "nazwa": "II",
+      "px": 200543,
+      "sat_drzewa_proc": 18.2,
+      "sat_trawy_krzewy_proc": 9.9,
+      "sat_zielen_proc": 28.1,
+      "sat_roslinnosc_proc": 68.0,
+      "sat_zabudowa_proc": 22.8,
+      "osm_zielen_proc": 11.1,
+      "roznica_sat_minus_osm": 17.0
+    },
+    {
+      "numer": 3,
+      "nazwa": "III",
+      "px": 57167,
+      "sat_drzewa_proc": 22.0,
+      "sat_trawy_krzewy_proc": 14.0,
+      "sat_zielen_proc": 36.0,
+      "sat_roslinnosc_proc": 53.5,
+      "sat_zabudowa_proc": 39.0,
+      "osm_zielen_proc": 13.0,
+      "roznica_sat_minus_osm": 23.0
+    },
+    {
+      "numer": 4,
+      "nazwa": "IV",
+      "px": 25209,
+      "sat_drzewa_proc": 15.5,
+      "sat_trawy_krzewy_proc": 27.1,
+      "sat_zielen_proc": 42.5,
+      "sat_roslinnosc_proc": 42.7,
+      "sat_zabudowa_proc": 57.3,
+      "osm_zielen_proc": 65.1,
+      "roznica_sat_minus_osm": -22.6
+    },
+    {
+      "numer": 5,
+      "nazwa": "V",
+      "px": 151086,
+      "sat_drzewa_proc": 7.4,
+      "sat_trawy_krzewy_proc": 13.9,
+      "sat_zielen_proc": 21.3,
+      "sat_roslinnosc_proc": 72.9,
+      "sat_zabudowa_proc": 26.7,
+      "osm_zielen_proc": 9.6,
+      "roznica_sat_minus_osm": 11.7
+    },
+    {
+      "numer": 6,
+      "nazwa": "VI",
+      "px": 239027,
+      "sat_drzewa_proc": 16.9,
+      "sat_trawy_krzewy_proc": 31.0,
+      "sat_zielen_proc": 48.4,
+      "sat_roslinnosc_proc": 70.0,
+      "sat_zabudowa_proc": 25.0,
+      "osm_zielen_proc": 41.1,
+      "roznica_sat_minus_osm": 7.3
+    },
+    {
+      "numer": 7,
+      "nazwa": "VII",
+      "px": 340574,
+      "sat_drzewa_proc": 21.3,
+      "sat_trawy_krzewy_proc": 19.2,
+      "sat_zielen_proc": 41.2,
+      "sat_roslinnosc_proc": 72.0,
+      "sat_zabudowa_proc": 19.2,
+      "osm_zielen_proc": 14.1,
+      "roznica_sat_minus_osm": 27.1
+    },
+    {
+      "numer": 8,
+      "nazwa": "VIII",
+      "px": 52166,
+      "sat_drzewa_proc": 19.1,
+      "sat_trawy_krzewy_proc": 3.0,
+      "sat_zielen_proc": 22.1,
+      "sat_roslinnosc_proc": 22.4,
+      "sat_zabudowa_proc": 68.5,
+      "osm_zielen_proc": 18.6,
+      "roznica_sat_minus_osm": 3.5
+    },
+    {
+      "numer": 9,
+      "nazwa": "IX",
+      "px": 32154,
+      "sat_drzewa_proc": 22.8,
+      "sat_trawy_krzewy_proc": 3.5,
+      "sat_zielen_proc": 26.3,
+      "sat_roslinnosc_proc": 26.3,
+      "sat_zabudowa_proc": 63.6,
+      "osm_zielen_proc": 13.8,
+      "roznica_sat_minus_osm": 12.5
+    },
+    {
+      "numer": 10,
+      "nazwa": "X",
+      "px": 59513,
+      "sat_drzewa_proc": 35.7,
+      "sat_trawy_krzewy_proc": 42.5,
+      "sat_zielen_proc": 78.5,
+      "sat_roslinnosc_proc": 82.4,
+      "sat_zabudowa_proc": 10.4,
+      "osm_zielen_proc": 42.5,
+      "roznica_sat_minus_osm": 36.0
+    },
+    {
+      "numer": 11,
+      "nazwa": "XI",
+      "px": 53308,
+      "sat_drzewa_proc": 41.4,
+      "sat_trawy_krzewy_proc": 13.1,
+      "sat_zielen_proc": 54.5,
+      "sat_roslinnosc_proc": 61.8,
+      "sat_zabudowa_proc": 38.1,
+      "osm_zielen_proc": 11.4,
+      "roznica_sat_minus_osm": 43.1
+    },
+    {
+      "numer": 12,
+      "nazwa": "XII",
+      "px": 587994,
+      "sat_drzewa_proc": 15.8,
+      "sat_trawy_krzewy_proc": 12.8,
+      "sat_zielen_proc": 28.7,
+      "sat_roslinnosc_proc": 88.9,
+      "sat_zabudowa_proc": 10.7,
+      "osm_zielen_proc": 15.7,
+      "roznica_sat_minus_osm": 13.0
+    },
+    {
+      "numer": 13,
+      "nazwa": "XIII",
+      "px": 262351,
+      "sat_drzewa_proc": 15.5,
+      "sat_trawy_krzewy_proc": 17.3,
+      "sat_zielen_proc": 32.8,
+      "sat_roslinnosc_proc": 85.4,
+      "sat_zabudowa_proc": 13.9,
+      "osm_zielen_proc": 12.2,
+      "roznica_sat_minus_osm": 20.6
+    }
+  ],
+  "zrodlo": "ESA WorldCover 10m v200 (2021), Sentinel-1/2; odczyt z COG AWS S3"
+}

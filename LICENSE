@@ -1,0 +1,35 @@
+MIT License (kod / code)
+
+Copyright (c) 2026 lkolo-prez (Strategia Młodzieżowa Miasta Opola)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+DANE / DATA — licencja kodu (MIT) NIE obejmuje danych. Dane pochodzą z publicznych
+źródeł i podlegają ich własnym licencjom:
+ - OpenStreetMap — © kontrybutorzy OSM, licencja ODbL (opendatacommons.org/licenses/odbl)
+ - ESA WorldCover 10 m (2021) — © ESA WorldCover project, CC BY 4.0
+ - ArcGIS UM Opole, Plan Ogólny, ortofotomapy — dane publiczne Urzędu Miasta Opola
+ - GUGiK / KIEG (działki, budynki) — dane publiczne
+ - GDOŚ (ochrona przyrody) — dane publiczne
+ - GUS Bank Danych Lokalnych — dane publiczne
+ - SI2PEM (stacje BTS) — dane publiczne (gov.pl)
+Korzystając z danych, zachowaj atrybucję właściwych źródeł (są wymienione w aplikacji,
+zakładki „Źródła" i „Objaśnienia").

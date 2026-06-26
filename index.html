@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Opole — Zielona przestrzeń i dobrostan · mapa analityczna</title>
+<link rel="stylesheet" href="vendor/leaflet.css"/>
+<style>
+  :root{
+    --bg:#0f1720; --panel:#16212c; --panel2:#1d2b38; --line:#2a3b4a;
+    --txt:#e8eef3; --muted:#9fb1c1; --accent:#39b54a; --accent2:#2f9e44;
+    --warn:#e8590c; --bad:#e03131; --good:#2f9e44; --info:#1c7ed6;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+  #app{display:flex;height:100vh;overflow:hidden}
+  #map{flex:1;height:100%}
+  #side{width:390px;min-width:390px;height:100%;overflow-y:auto;background:var(--panel);border-left:1px solid var(--line);padding:0 0 40px}
+  header{padding:14px 16px;background:linear-gradient(135deg,#13361c,#0f1720);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+  header h1{margin:0;font-size:16px;letter-spacing:.2px}
+  header .sub{color:var(--muted);font-size:11.5px;margin-top:3px;line-height:1.4}
+  .tabs{display:flex;gap:4px;padding:8px 10px;flex-wrap:wrap;background:var(--panel);position:sticky;top:0;z-index:4;border-bottom:1px solid var(--line)}
+  .tab{font-size:12px;padding:6px 9px;border:1px solid var(--line);border-radius:7px;background:var(--panel2);color:var(--muted);cursor:pointer;user-select:none}
+  .tab.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+  .pane{display:none;padding:12px 14px}
+  .pane.on{display:block}
+  h2{font-size:13px;margin:14px 0 7px;color:var(--accent);letter-spacing:.3px;text-transform:uppercase}
+  h2:first-child{margin-top:2px}
+  .stat{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--line);font-size:13px}
+  .stat b{font-size:15px}
+  .stat .u{color:var(--muted);font-size:11px;margin-left:3px}
+  .muted{color:var(--muted)}
+  .small{font-size:11.5px;line-height:1.55}
+  .kard{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:10px 11px;margin:8px 0}
+  .pill{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:20px;background:#21323f;color:var(--muted);margin:2px 3px 2px 0;border:1px solid var(--line)}
+  .pill.good{background:#143821;color:#69db7c;border-color:#1d4a2c}
+  .pill.warn{background:#3a2410;color:#ffa94d;border-color:#503114}
+  .pill.bad{background:#3a1414;color:#ff8787;border-color:#502020}
+  select,button{background:var(--panel2);color:var(--txt);border:1px solid var(--line);border-radius:7px;padding:6px 8px;font-size:12.5px}
+  button{cursor:pointer}
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  label.lbl{font-size:11.5px;color:var(--muted);display:block;margin:8px 0 3px}
+  .legend{font-size:11px;line-height:1.5}
+  .legend i{display:inline-block;width:14px;height:10px;margin-right:6px;border-radius:2px;vertical-align:middle}
+  /* warstwy */
+  .lyr{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:12px;cursor:pointer}
+  .lyr input{accent-color:var(--accent)}
+  .grp{font-size:11px;text-transform:uppercase;color:var(--accent);margin:10px 0 2px;letter-spacing:.4px}
+  /* slider */
+  #yearWrap{display:flex;align-items:center;gap:9px}
+  #year{flex:1}
+  #yearVal{font-size:18px;font-weight:700;min-width:74px;text-align:right}
+  input[type=range]{accent-color:var(--accent)}
+  .leaflet-popup-content{font-size:12.5px;line-height:1.5}
+  .leaflet-popup-content h3{margin:2px 0 6px;font-size:14px}
+  .leaflet-popup-content table{border-collapse:collapse;width:100%}
+  .leaflet-popup-content td{padding:1px 6px 1px 0}
+  .leaflet-popup-content td:last-child{text-align:right;font-weight:600}
+  .chart{width:100%;height:96px;display:block}
+  .badge{position:absolute;left:10px;top:10px;z-index:1000;background:rgba(15,23,32,.92);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:12px;max-width:330px;backdrop-filter:blur(3px)}
+  .badge b{color:var(--accent)}
+  .leaflet-bar a{background:#16212c;color:#e8eef3;border-color:#2a3b4a}
+  .src{font-size:10.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:6px}
+  table.tbl{width:100%;border-collapse:collapse;font-size:11.5px}
+  table.tbl th,table.tbl td{padding:3px 5px;border-bottom:1px solid var(--line);text-align:right}
+  table.tbl th:first-child,table.tbl td:first-child{text-align:left}
+  table.tbl th{color:var(--muted);font-weight:600;position:sticky;top:0;background:var(--panel)}
+  .barbg{background:#22323f;border-radius:3px;height:8px;overflow:hidden;margin-top:2px}
+  .barfg{height:100%;background:var(--accent)}
+  /* karta dzielnicy / PDF */
+  #scWrap{display:none;position:fixed;inset:0;z-index:4000;background:rgba(8,12,17,.85);overflow:auto;padding:20px}
+  #scorecard{max-width:820px;margin:0 auto;background:#fff;color:#1a2530;border-radius:10px;padding:26px 30px;font-size:13px}
+  #scorecard h1{font-size:22px;margin:0 0 2px;color:#1b5e20}
+  #scorecard h2{font-size:13px;color:#2f9e44;text-transform:uppercase;border-bottom:2px solid #2f9e44;padding-bottom:3px;margin:16px 0 8px}
+  #scorecard .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+  #scorecard .kv{display:flex;justify-content:space-between;border-bottom:1px dotted #cdd6dd;padding:3px 0}
+  #scorecard .kv b{color:#0b3d1a}
+  #scorecard .foot{margin-top:16px;font-size:10.5px;color:#6b7a86;border-top:1px solid #dde;padding-top:8px}
+  #scBtns{max-width:820px;margin:0 auto 10px;display:flex;gap:8px;justify-content:flex-end}
+  #scBtns button{background:#2f9e44;color:#fff;border:none;padding:8px 14px;border-radius:7px;cursor:pointer;font-size:13px}
+  #scBtns button.sec{background:#33485a}
+  @media print {
+    body *{visibility:hidden} #scWrap,#scWrap *{visibility:visible}
+    #scWrap{position:absolute;inset:0;background:#fff;padding:0;display:block!important} #scBtns{display:none}
+    #scorecard{max-width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="map"><div class="badge" id="mapBadge">Ładowanie danych…</div>
+    <div id="demoHint" style="display:none;position:absolute;left:10px;bottom:18px;z-index:1000;background:rgba(20,40,25,.94);border:1px solid var(--accent2);border-radius:9px;padding:8px 12px;font-size:12px;max-width:330px">🎯 <b>Tryb demonstracji włączony.</b> Kliknij dowolne miejsce na mapie.</div>
+    <div id="isoHint" style="display:none;position:absolute;left:10px;bottom:18px;z-index:1000;background:rgba(20,30,45,.94);border:1px solid #1c7ed6;border-radius:9px;padding:8px 12px;font-size:12px;max-width:340px">🚶 <b>Izochrony włączone.</b> Kliknij dowolne miejsce — pokażę zasięg 5/10/15 min pieszo. <span style="color:#2b8a3e">●</span>5 <span style="color:#ffd43b">●</span>10 <span style="color:#e8590c">●</span>15 min</div>
+    <div id="mapLegend" style="position:absolute;right:10px;bottom:14px;z-index:1000;background:rgba(15,23,32,.93);border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:11.5px;max-width:240px;max-height:46vh;overflow:auto;backdrop-filter:blur(3px)">
+      <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="var b=document.getElementById('mapLegendBody');b.style.display=b.style.display==='none'?'block':'none';this.querySelector('span').textContent=b.style.display==='none'?'▸':'▾'"><b style="color:var(--accent)">Legenda</b><span>▾</span></div>
+      <div id="mapLegendBody" style="margin-top:6px"></div>
+    </div>
+  </div>
+  <!-- karta dzielnicy (PDF) -->
+  <div id="scWrap"><div id="scBtns"><button onclick="window.print()">📄 Drukuj / zapisz PDF</button><button class="sec" onclick="document.getElementById('scWrap').style.display='none'">✕ Zamknij</button></div><div id="scorecard"></div></div>
+  <!-- onboarding -->
+  <div id="intro" style="position:fixed;inset:0;z-index:3000;background:rgba(8,12,17,.82);display:flex;align-items:center;justify-content:center">
+    <div style="max-width:560px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:0 10px 50px #000a">
+      <h1 style="margin:0 0 4px;font-size:19px">🌳 Mapa zieleni i dobrostanu Opola</h1>
+      <p class="small muted" style="margin:2px 0 14px">Materiał pod Strategię Młodzieżową — Obszar 7. Dane publiczne i weryfikowalne.</p>
+      <div class="small" style="line-height:1.7">
+        <b>Co tu zobaczysz:</b><br>
+        🗺 <b>Mapa</b> — przełączasz warstwy (zieleń, drzewa, transport, usługi) i kolorujesz dzielnice wybranym wskaźnikiem; suwak zmienia rok 2017→2030.<br>
+        📡 <b>Satelita</b> — niezależny obraz zieleni z satelitów (pokazuje zieleń, której brak w innych danych).<br>
+        🚶 <b>15-min</b> — czy codzienne potrzeby są w zasięgu 15 min pieszo.<br>
+        ❓ <b>Metoda</b> — jak liczymy odległości (z trybem demonstracji „kliknij i zobacz").<br><br>
+        <b>Najważniejsze:</b> najedź lub kliknij dowolny punkt/obszar — pokażę <b>co to jest, skąd pochodzi i z jakiego źródła</b>.
+      </div>
+      <button id="introClose" style="margin-top:16px;width:100%;background:var(--accent2);color:#fff;border:none;padding:10px;font-size:14px">Zaczynam →</button>
+    </div>
+  </div>
+  <div id="side">
+    <header>
+      <h1>🌳 Opole — zielona przestrzeń i dobrostan</h1>
+      <div class="sub">Mapa analityczna pod Strategię Młodzieżową · Obszar 7.<br>
+      Dane: OpenStreetMap (ODbL) · ArcGIS UM Opole · GUS. Stan: <span id="dataDate">—</span></div>
+    </header>
+    <div class="tabs" id="tabs"></div>
+    <div id="panes">
+      <!-- WARSTWY -->
+      <div class="pane on" data-pane="warstwy">
+        <h2>Podkład</h2>
+        <div class="row"><select id="base"></select></div>
+        <h2>Choropleta dzielnic</h2>
+        <label class="lbl">Wskaźnik (kolor dzielnic):</label>
+        <select id="metric" style="width:100%"></select>
+        <div id="yearBox" style="margin-top:10px">
+          <label class="lbl">Rok / projekcja:</label>
+          <div id="yearWrap"><input type="range" id="year" min="2017" max="2030" value="2026" step="1"><span id="yearVal">2026</span></div>
+          <div class="row" style="margin-top:6px">
+            <button id="play">▶ Animuj 2017→2030</button>
+            <span class="small muted">linia ≥2027 = projekcja trendu</span>
+          </div>
+        </div>
+        <div class="legend kard" id="legend"></div>
+        <label class="lbl">Przezroczystość choroplety dzielnic:</label>
+        <input type="range" id="choroOpacity" min="0" max="100" value="72" style="width:100%">
+        <div class="row" style="margin-top:6px">
+          <label class="lbl" style="margin:0"><input type="checkbox" id="showValues"> Pokaż wartości wskaźnika na mapie</label>
+        </div>
+        <label class="lbl">Przezroczystość warstw punktowych/obszarowych:</label>
+        <input type="range" id="overlayOpacity" min="20" max="100" value="90" style="width:100%">
+        <h2>Warstwy danych</h2>
+        <div class="small muted" style="margin-bottom:5px">Włącz kilka naraz i reguluj przezroczystość, by je nakładać. Legenda aktywnych warstw — na mapie (dolny róg).</div>
+        <div id="layerCtl"></div>
+      </div>
+      <!-- DEMOGRAFIA -->
+      <div class="pane" data-pane="demografia">
+        <h2>Miasto — 2017 → 2030</h2>
+        <div class="kard" id="demoCity"></div>
+        <label class="lbl">Wykres (klik dzielnicę na mapie, by porównać):</label>
+        <div class="row"><select id="demoMetric" style="width:100%"></select></div>
+        <svg class="chart" id="demoChart"></svg>
+        <div class="small muted" id="demoChartCap"></div>
+        <h2>Dzielnice — zmiana 2017→2026</h2>
+        <div style="max-height:300px;overflow:auto"><table class="tbl" id="demoTbl"></table></div>
+        <div class="src" id="demoSrc"></div>
+      </div>
+      <!-- ZIELEŃ -->
+      <div class="pane" data-pane="zielen">
+        <h2>Bilans zieleni (2026)</h2>
+        <div class="kard" id="greenStats"></div>
+        <h2>Dostępność (WHO/EEA: 300 m pieszo)</h2>
+        <div class="kard" id="accStats"></div>
+        <h2>Ranking dzielnic — zieleń/mieszkańca</h2>
+        <div style="max-height:280px;overflow:auto"><table class="tbl" id="greenTbl"></table></div>
+        <div class="src">Standardy: WHO Europe / EEA — teren zielony w zasięgu ~300 m od domu; ANGSt (Natural England) — min. 2 ha w 300 m; często cytowany próg 9 m²/os (min.), 50 m² (cel).</div>
+      </div>
+      <!-- 15-MIN -->
+      <div class="pane" data-pane="m15">
+        <h2>Miasto 15-minutowe (pieszo)</h2>
+        <div class="kard small" id="m15Intro"></div>
+        <div class="kard" id="m15Stats"></div>
+        <h2>Średnia odległość do usług</h2>
+        <div class="kard" id="m15Dist"></div>
+        <h2>Dostępność wg poziomu edukacji</h2>
+        <div class="kard small" id="eduIntro"></div>
+        <div style="max-height:300px;overflow:auto"><table class="tbl" id="eduTbl"></table></div>
+        <h2>Szkoły — dostępność otoczenia</h2>
+        <div class="kard" id="schoolStats"></div>
+        <div class="src">Progi: 800 m ≈ 10 min, 1200 m ≈ 15 min pieszo. Dystans liniowy; realny pieszy ~1,2–1,4× dłuższy.</div>
+      </div>
+      <!-- EKONOMIA -->
+      <div class="pane" data-pane="ekonomia">
+        <h2>Mieszkania i dostępność</h2>
+        <div class="kard" id="ekonMieszk"></div>
+        <label class="lbl">Cena mieszkania (mediana zł/m², wolny rynek):</label>
+        <svg class="chart" id="ekonChart"></svg>
+        <div class="small muted" id="ekonChartCap"></div>
+        <h2>Wynagrodzenia</h2>
+        <div class="kard" id="ekonPlace"></div>
+        <h2>Firmy w Opolu (wg wielkości)</h2>
+        <div class="kard" id="ekonFirmy"></div>
+        <div class="src" id="ekonSrc"></div>
+      </div>
+      <!-- SATELITA -->
+      <div class="pane" data-pane="satelita">
+        <h2>Drugi zbiór zieleni — z satelity</h2>
+        <div class="kard small" id="satIntro"></div>
+        <div class="row" style="margin:8px 0">
+          <label class="lbl" style="margin:0"><input type="checkbox" id="satOv"> Pokaż zieleń satelitarną na mapie</label>
+        </div>
+        <label class="lbl">Przezroczystość nakładki (porównaj z podkładem):</label>
+        <input type="range" id="satOpacity" min="0" max="100" value="70" style="width:100%">
+        <div class="small muted">Przeciągnij, by płynnie porównać zieleń satelitarną z mapą/satelitą pod spodem.</div>
+        <div class="legend kard" id="satLegend"></div>
+        <h2>Satelita vs OSM (ile OSM gubi)</h2>
+        <div class="kard small">Porównanie pokrycia zielenią z satelity (ESA WorldCover 10 m) z tym, co zmapowano w OpenStreetMap. Dodatnia różnica = OSM <b>nie pokazuje</b> tej zieleni.</div>
+        <div style="max-height:320px;overflow:auto"><table class="tbl" id="satTbl"></table></div>
+        <div class="src" id="satSrc"></div>
+      </div>
+      <!-- ANALIZY STRATEGICZNE -->
+      <div class="pane" data-pane="analizy">
+        <h2>Dystans rzeczywisty vs linia prosta</h2>
+        <div class="kard small" id="anSiec"></div>
+        <h2>Indeks deprywacji dostępu (sieć)</h2>
+        <div class="kard small">Wyższy = gorszy dostęp pieszo do edukacji, usług, sportu i zieleni. „Priorytet" waży deprywację udziałem młodzieży. „Pewność" = jakość pokrycia danych.</div>
+        <div style="max-height:300px;overflow:auto"><table class="tbl" id="anDeprTbl"></table></div>
+        <h2>💡 Gdzie dodać (max-coverage)</h2>
+        <div class="kard small" id="anSiting"></div>
+        <div class="src" id="anSrc"></div>
+      </div>
+      <!-- WERYFIKACJA DANYCH -->
+      <div class="pane" data-pane="weryfikacja">
+        <h2>Walidacja zieleni — 3 źródła</h2>
+        <div class="kard small" id="weryfIntro"></div>
+        <div class="kard" id="weryfGlob"></div>
+        <h2>Per dzielnica: plan vs satelita vs OSM</h2>
+        <div class="small muted" style="margin-bottom:5px">🏛 plan SN (przeznaczenie) · 🛰 satelita (fakt) · 🗺 OSM (zmapowane). „Poza planem" = zieleń faktyczna spoza stref zieleni.</div>
+        <div style="max-height:300px;overflow:auto"><table class="tbl" id="weryfTbl"></table></div>
+        <h2>Co to znaczy (błędy źródeł)</h2>
+        <div class="kard small" id="weryfErr"></div>
+        <div class="src" id="weryfSrc"></div>
+      </div>
+      <!-- METODA / POMOC -->
+      <div class="pane" data-pane="metoda">
+        <h2>Jak czytać tę mapę</h2>
+        <div class="kard small" id="helpRead"></div>
+        <h2>Jak liczymy odległości</h2>
+        <div class="kard small" id="helpDist"></div>
+        <button id="demoBtn" style="width:100%;margin-top:6px">🎯 Włącz tryb demonstracji — kliknij mapę</button>
+        <div class="small muted" style="margin-top:6px">Po włączeniu kliknij dowolne miejsce: pokażę bufory 300/500 m i linie do najbliższej zieleni oraz usług, z odległościami.</div>
+        <h2>Izochrony pieszo — z dowolnego punktu</h2>
+        <button id="isoBtn" style="width:100%">🚶 Izochrona z punktu — kliknij mapę</button>
+        <div class="kard small" id="isoStatus" style="margin-top:7px">Liczone NA ŻYWO na sieci pieszej całego miasta (graf 100,5 tys. węzłów). Kliknij dowolne miejsce — zobaczysz, dokąd dojdziesz w 5/10/15 min. Świetne do oceny propozycji lokalizacji (np. nowego parku).</div>
+        <h2>Co oznaczają kolory i warstwy</h2>
+        <div class="kard small" id="helpLayers"></div>
+      </div>
+      <!-- WNIOSKI -->
+      <div class="pane" data-pane="wnioski">
+        <h2>Kluczowe wnioski (na danych)</h2>
+        <div id="wnKey"></div>
+        <h2>Rekomendacje do dyskusji</h2>
+        <div id="wnRec" class="small"></div>
+        <h2>Braki danych — co warto pozyskać</h2>
+        <div id="wnGaps" class="small"></div>
+      </div>
+      <!-- OBJAŚNIENIA / SŁOWNIK -->
+      <div class="pane" data-pane="objasnienia">
+        <h2>O tej mapie</h2>
+        <div class="kard small" id="objIntro"></div>
+        <h2>Wszystkie wskaźniki (choropleta)</h2>
+        <div style="max-height:320px;overflow:auto" id="objMetrics"></div>
+        <h2>Wszystkie warstwy</h2>
+        <div style="max-height:300px;overflow:auto" id="objLayers"></div>
+        <h2>Pojęcia kluczowe</h2>
+        <div id="objConcepts" class="small"></div>
+        <h2>Wszystkie źródła danych</h2>
+        <div id="objSources" class="small"></div>
+      </div>
+      <!-- ŹRÓDŁA -->
+      <div class="pane" data-pane="zrodla">
+        <h2>Źródła i daty danych</h2>
+        <div id="provReg" class="small"></div>
+        <h2>Luki danych (uczciwie)</h2>
+        <div class="kard small" id="gaps"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="vendor/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

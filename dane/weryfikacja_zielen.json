@@ -1,0 +1,150 @@
+{
+  "globalne": {
+    "strefa_SN_ha": 1371,
+    "strefa_SN_proc_miasta": 9.9,
+    "strefa_otwarta_SO_ha": 4679,
+    "satelita_zielen_ha": 5266,
+    "satelita_zielen_proc": 38.2,
+    "SN_faktycznie_zielone_proc": 56.3,
+    "zielen_w_strefach_zieleni_proc": 50.4,
+    "zielen_poza_strefami_proc": 49.6
+  },
+  "dzielnice": [
+    {
+      "numer": 1,
+      "nazwa": "I",
+      "plan_SN_proc": 4.2,
+      "satelita_zielen_proc": 51.3,
+      "osm_zielen_proc": 33.0,
+      "SN_faktycznie_zielone_proc": 54.7,
+      "zielen_chroniona_proc": 65.9,
+      "zielen_poza_strefami_proc": 17.5
+    },
+    {
+      "numer": 2,
+      "nazwa": "II",
+      "plan_SN_proc": 13.5,
+      "satelita_zielen_proc": 28.1,
+      "osm_zielen_proc": 11.1,
+      "SN_faktycznie_zielone_proc": 53.9,
+      "zielen_chroniona_proc": 42.0,
+      "zielen_poza_strefami_proc": 16.3
+    },
+    {
+      "numer": 3,
+      "nazwa": "III",
+      "plan_SN_proc": 11.9,
+      "satelita_zielen_proc": 36.0,
+      "osm_zielen_proc": 13.0,
+      "SN_faktycznie_zielone_proc": 93.4,
+      "zielen_chroniona_proc": 30.8,
+      "zielen_poza_strefami_proc": 24.9
+    },
+    {
+      "numer": 4,
+      "nazwa": "IV",
+      "plan_SN_proc": 16.2,
+      "satelita_zielen_proc": 42.5,
+      "osm_zielen_proc": 65.1,
+      "SN_faktycznie_zielone_proc": 93.2,
+      "zielen_chroniona_proc": 36.8,
+      "zielen_poza_strefami_proc": 26.9
+    },
+    {
+      "numer": 5,
+      "nazwa": "V",
+      "plan_SN_proc": 20.4,
+      "satelita_zielen_proc": 21.3,
+      "osm_zielen_proc": 9.6,
+      "SN_faktycznie_zielone_proc": 16.5,
+      "zielen_chroniona_proc": 32.8,
+      "zielen_poza_strefami_proc": 14.3
+    },
+    {
+      "numer": 6,
+      "nazwa": "VI",
+      "plan_SN_proc": 15.4,
+      "satelita_zielen_proc": 48.4,
+      "osm_zielen_proc": 41.1,
+      "SN_faktycznie_zielone_proc": 61.8,
+      "zielen_chroniona_proc": 47.8,
+      "zielen_poza_strefami_proc": 25.3
+    },
+    {
+      "numer": 7,
+      "nazwa": "VII",
+      "plan_SN_proc": 7.8,
+      "satelita_zielen_proc": 41.2,
+      "osm_zielen_proc": 14.1,
+      "SN_faktycznie_zielone_proc": 61.2,
+      "zielen_chroniona_proc": 36.8,
+      "zielen_poza_strefami_proc": 26.0
+    },
+    {
+      "numer": 8,
+      "nazwa": "VIII",
+      "plan_SN_proc": 16.5,
+      "satelita_zielen_proc": 22.1,
+      "osm_zielen_proc": 18.6,
+      "SN_faktycznie_zielone_proc": 31.0,
+      "zielen_chroniona_proc": 23.3,
+      "zielen_poza_strefami_proc": 17.0
+    },
+    {
+      "numer": 9,
+      "nazwa": "IX",
+      "plan_SN_proc": 12.9,
+      "satelita_zielen_proc": 26.3,
+      "osm_zielen_proc": 13.8,
+      "SN_faktycznie_zielone_proc": 56.2,
+      "zielen_chroniona_proc": 27.6,
+      "zielen_poza_strefami_proc": 19.0
+    },
+    {
+      "numer": 10,
+      "nazwa": "X",
+      "plan_SN_proc": 36.1,
+      "satelita_zielen_proc": 78.5,
+      "osm_zielen_proc": 42.5,
+      "SN_faktycznie_zielone_proc": 92.2,
+      "zielen_chroniona_proc": 64.1,
+      "zielen_poza_strefami_proc": 28.2
+    },
+    {
+      "numer": 11,
+      "nazwa": "XI",
+      "plan_SN_proc": 28.9,
+      "satelita_zielen_proc": 54.5,
+      "osm_zielen_proc": 11.4,
+      "SN_faktycznie_zielone_proc": 92.8,
+      "zielen_chroniona_proc": 50.3,
+      "zielen_poza_strefami_proc": 27.1
+    },
+    {
+      "numer": 12,
+      "nazwa": "XII",
+      "plan_SN_proc": 4.0,
+      "satelita_zielen_proc": 28.7,
+      "osm_zielen_proc": 15.7,
+      "SN_faktycznie_zielone_proc": 38.1,
+      "zielen_chroniona_proc": 57.9,
+      "zielen_poza_strefami_proc": 12.1
+    },
+    {
+      "numer": 13,
+      "nazwa": "XIII",
+      "plan_SN_proc": 10.1,
+      "satelita_zielen_proc": 32.8,
+      "osm_zielen_proc": 12.2,
+      "SN_faktycznie_zielone_proc": 52.4,
+      "zielen_chroniona_proc": 35.1,
+      "zielen_poza_strefami_proc": 21.3
+    }
+  ],
+  "zrodla": {
+    "plan": "Plan Ogólny m. Opola, strefy planistyczne (obowiązuje 28.11.2025)",
+    "satelita": "ESA WorldCover 10 m 2021",
+    "osm": "OpenStreetMap"
+  },
+  "uwaga": "Strefa SN = OFICJALNE PRZEZNACZENIE na zieleń/rekreację (nie pomiar pokrycia). Satelita/OSM = FAKTYCZNE pokrycie. Rozbieżności wskazują: zieleń niechronioną planem lub strefy zieleni jeszcze niezagospodarowane."
+}
